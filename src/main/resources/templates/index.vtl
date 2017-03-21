@@ -1,3 +1,20 @@
 <!--index.vtl-->
-
+<h1>List of places I've travelled!</h1>
+#if ($places)
+  <ul>
+    #foreach ($place in $places)
+      <li>$place.getCountryAndCity()</li>
+    #end
+  </ul>
+#else
+  <p> No places visited!</p>
+#end
+<p>Add a new place:</p>
+<form action="/places" method="post">
+  <label for="countryVisited">Country visited: </label>
+  <input type="text" name="countryVisited" id="countryVisited"><br>
+  <label for="cityVisited">City in Country: </label>
+  <input type="text" name="cityVisited" id="cityVisited"><br>
+  <button type="submit" name="submit">Submit</button>
+</form>
 <!--index.vtl-->
